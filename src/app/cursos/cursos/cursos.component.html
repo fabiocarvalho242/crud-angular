@@ -1,18 +1,23 @@
-<table mat-table [dataSource]="cursos" class="mat-table">
+<mat-toolbar class="mat-toolbar">
+  <span class="titulo"> Cursos Disponíveis</span>
+</mat-toolbar>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nome">
-    <th mat-header-cell *matHeaderCellDef> Curso </th>
-    <td mat-cell *matCellDef="let curso"> {{ curso.nome }} </td>
-  </ng-container>
+<mat-card>
+  <table mat-table [dataSource]="cursos" class="mat-table">
 
-  <!-- Categoria Column -->
-  <ng-container matColumnDef="categoria">
-    <th mat-header-cell *matHeaderCellDef> Categoria </th>
-    <td mat-cell *matCellDef="let curso"> {{ curso.categoria }} </td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Curso </th>
+      <td mat-cell *matCellDef="let curso"> {{ curso.nome }} </td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <!-- Categoria Column -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell *matCellDef="let curso"> {{ curso.categoria }} </td>
+    </ng-container>
 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>
