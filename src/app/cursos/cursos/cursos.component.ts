@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from '../models/curso';
 import { CursosService } from '../services/cursos.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cursos',
@@ -12,7 +13,7 @@ import { CursosService } from '../services/cursos.service';
 
 export class CursosComponent implements OnInit {
 
-  cursos: Curso[] = [];
+  cursos: Observable<Curso[]>;
 
   displayedColumns = ['nome', 'categoria', 'descricao'];
 
