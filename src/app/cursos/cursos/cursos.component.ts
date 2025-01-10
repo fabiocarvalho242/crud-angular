@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from '../models/curso';
-import { CursosService } from '../services/cursos.service';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cursos',
@@ -13,13 +12,12 @@ import { Observable } from 'rxjs';
 
 export class CursosComponent implements OnInit {
 
-  cursos$!: Observable<Curso[]>;
+  cursos: Curso[] | undefined;
   displayedColumns = ['nome', 'categoria', 'descricao'];
 
-  constructor(private cursoService: CursosService) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.cursos$ = this.cursoService.list();
-
+    this.cursos = this.route.snapshot.data['cursos'];
   }
 }
